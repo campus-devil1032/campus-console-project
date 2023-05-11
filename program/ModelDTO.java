@@ -49,7 +49,7 @@ public class ModelDTO {
 		
 	public String getPrint() {
 		
-		System.out.println("[Á¤»óÃâ·Â] " + print);
+		System.out.println("[ì •ìƒì¶œë ¥] " + print);
 		
 		while (true) {
 			
@@ -57,7 +57,7 @@ public class ModelDTO {
 				View.SelectSwitch(input,this.cal_n1, this.cal_n2);
 					
 			} catch (InputMismatchException e) {
-				System.out.println("Àß¸øµÈ ¹®ÀÚ¸¦ ÀÔ·ÂÇß½À´Ï´Ù!");
+				System.out.println("ì˜ëª»ëœ ë¬¸ìë¥¼ ì…ë ¥í–ˆìŠµë‹ˆë‹¤!");
 				input = new Scanner(System.in);
 			}
 			
@@ -73,8 +73,8 @@ public class ModelDTO {
 	
 	public static void cal_Operator(int cal_n1, int cal_n2) {
 		String oper = "";
-		System.out.println("¿¬»çÀÚ¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä:");
-		System.out.println("´õÇÏ±â: +, •û±â: -, °öÇÏ±â: *, ³ª´©±â: /");	
+		System.out.println("ì—°ì‚¬ìë¥¼ ì„ íƒí•´ì£¼ì„¸ìš”:");
+		System.out.println("ë”í•˜ê¸°: +, ëº´ê¸°: -, ê³±í•˜ê¸°: *, ë‚˜ëˆ„ê¸°: /");	
 		oper = input.next();
 		
 		switch (oper) {
@@ -91,9 +91,9 @@ public class ModelDTO {
 			cal_result = cal_n1 / cal_n2;
 			break;
 		default:
-			System.out.println("Àß¸øµÈ ¿¬»çÀÚ°¡ ÀÔ·ÂµÇ¾ú½À´Ï´Ù! ");
-			System.out.println("¿¬»çÀÚ¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä:");
-			System.out.println("´õÇÏ±â: +, •û±â: -, °öÇÏ±â: *, ³ª´©±â: /");
+			System.out.println("ì˜ëª»ëœ ì—°ì‚¬ìê°€ ì…ë ¥ë˜ì—ˆìŠµë‹ˆë‹¤! ");
+			System.out.println("ì—°ì‚¬ìë¥¼ ì„ íƒí•´ì£¼ì„¸ìš”:");
+			System.out.println("ë”í•˜ê¸°: +, ëº´ê¸°: -, ê³±í•˜ê¸°: *, ë‚˜ëˆ„ê¸°: /");
 			cal_Operator(cal_n1, cal_n2);
 		}
 		

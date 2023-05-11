@@ -4,7 +4,7 @@ public class Controller {
 	public static void main(String[] args) {
 		
 		ModelDTO guguObject = new ModelDTO(9);
-		guguObject.setPrint("¿Ï·á");
+		guguObject.setPrint("ì™„ë£Œ");
 		System.out.println(guguObject.getPrint());
 	
 	}

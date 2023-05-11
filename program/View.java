@@ -17,23 +17,23 @@ public class View {
 			switch(n) {
 		
 				case 1:
-					System.out.println("=====<°è»ê±â>=====");
-					System.out.println("¡Ø¼ıÀÚ 2°³¸¦ ÀÔ·ÂÇØ¾ßÇÕ´Ï´Ù.");
+					System.out.println("=====<ê³„ì‚°ê¸°>=====");
+					System.out.println("â€»ìˆ«ì 2ê°œë¥¼ ì…ë ¥í•´ì•¼í•©ë‹ˆë‹¤.");
 					CalView(input, cal_n1, cal_n2);
 					Menu();
 					break;
 				case 2:
-					System.out.println("=====<±¸±¸´Ü>======");
-					System.out.println("1 ~ 999±îÁöÀÇ ¼ıÀÚ ÀÔ·ÂÇØÁÖ¼¼¿ä");
+					System.out.println("=====<êµ¬êµ¬ë‹¨>======");
+					System.out.println("1 ~ 999ê¹Œì§€ì˜ ìˆ«ì ì…ë ¥í•´ì£¼ì„¸ìš”");
 					Except.gugu_Ex(input, ModelDTO.getGugu_dan());
 					Menu();
 					break;
 				case 3:
 					input.close();
-					System.out.println("ÇÁ·Î±×·¥À» Á¤»óÀûÀ¸·Î Á¾·á!");
+					System.out.println("í”„ë¡œê·¸ë¨ì„ ì •ìƒì ìœ¼ë¡œ ì¢…ë£Œ!");
 					System.exit(0);
 				default:
-					System.out.println("Àß¸øµÈ ¹®ÀÚ¸¦ ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù.");
+					System.out.println("ì˜ëª»ëœ ë¬¸ìë¥¼ ì…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤.");
 					SelectSwitch(input,cal_n1,cal_n2);
 		
 			}
@@ -42,10 +42,10 @@ public class View {
 	}
 	
 	public static void Menu() {
-		System.out.println("======<¸Ş ´º>======");
-		System.out.println("1¹øÀ» ´©¸£¸é °è»ê±â ÀÔ´Ï´Ù.");
-		System.out.println("2¹øÀ» ´©¸£¸é ±¸±¸´ÜÀÔ´Ï´Ù.");
-		System.out.println("3¹øÀ» ´©¸£¸é ÇÁ·Î±×·¥À» Á¾·á ÇÕ´Ï´Ù.");
+		System.out.println("======<ë©” ë‰´>======");
+		System.out.println("1ë²ˆì„ ëˆ„ë¥´ë©´ ê³„ì‚°ê¸° ì…ë‹ˆë‹¤.");
+		System.out.println("2ë²ˆì„ ëˆ„ë¥´ë©´ êµ¬êµ¬ë‹¨ì…ë‹ˆë‹¤.");
+		System.out.println("3ë²ˆì„ ëˆ„ë¥´ë©´ í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œ í•©ë‹ˆë‹¤.");
 		System.out.println("================");
 	}
 	
@@ -53,18 +53,18 @@ public class View {
 
 		while (true) {
 			try {
-				System.out.println("Ã¹ ¹ø¤Š ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä:");
+				System.out.println("ì²« ë²ˆì¨° ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”:");
 				cal_n1 = input.nextInt();
-				System.out.println("µÎ ¹øÂ° ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä:");
+				System.out.println("ë‘ ë²ˆì§¸ ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”:");
 				cal_n2 = input.nextInt();
 
 				ModelDTO.cal_Operator(cal_n1, cal_n2);
 
-				System.out.println("°è»ê°á°ú: " + ModelDTO.getCal_result());
+				System.out.println("ê³„ì‚°ê²°ê³¼: " + ModelDTO.getCal_result());
 				break;
 			} catch (InputMismatchException e) {
-				System.out.println("Àß¸øµÈ ¹®ÀÚ°¡ ÀÔ·ÂµÇ¾ú½À´Ï´Ù.");
-				System.out.println("Á¤¼ö¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+				System.out.println("ì˜ëª»ëœ ë¬¸ìê°€ ì…ë ¥ë˜ì—ˆìŠµë‹ˆë‹¤.");
+				System.out.println("ì •ìˆ˜ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 				input = new Scanner(System.in);
 	
 			}

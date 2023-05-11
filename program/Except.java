@@ -9,7 +9,7 @@ public class Except {
 			try {
 				dan = input.nextInt();
 				if(dan>999 || dan<1) {
-					System.out.println("1 ~ 999±îÁöÀÇ Á¤¼ö ÀÔ·Â¸¸ À¯È¿");
+					System.out.println("1 ~ 999ê¹Œì§€ì˜ ì •ìˆ˜ ì…ë ¥ë§Œ ìœ íš¨");
 				}
 				else {
 					for (int i = 1; i < 10; i++) {
@@ -21,8 +21,8 @@ public class Except {
 			
 			catch (InputMismatchException e) { //Exception e, InputMismatchException e, IOException e
 				input = new Scanner(System.in);
-				System.out.println("¿¹¿Ü¹ß»ı! Àß¸øµÈ ÀÔ·Â");
-				System.out.println("1 ~ 999±îÁöÀÇ Á¤¼ö ÀÔ·Â¸¸ À¯È¿");
+				System.out.println("ì˜ˆì™¸ë°œìƒ! ì˜ëª»ëœ ì…ë ¥");
+				System.out.println("1 ~ 999ê¹Œì§€ì˜ ì •ìˆ˜ ì…ë ¥ë§Œ ìœ íš¨");
 			}
 
 		}
