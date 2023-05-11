@@ -1,9 +1,9 @@
 package gugudan;
 
-public class View {
+public class GugudanView {
 
 	public void run() {
-		controller gugudan = new controller();
+		Gugudancontroller gugudan = new Gugudancontroller();
 		System.out.println("1~9까지 입력하시오");
 		gugudan.runner();
 	}

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import two_week_project.UserExcpetion;
 
-public class controller {
+public class Gugudancontroller {
 
 	public void runner() {
 		Scanner sc = new Scanner(System.in);
