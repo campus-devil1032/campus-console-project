@@ -7,5 +7,7 @@ public static void main(String[] args) {
 	CalculatorView ts2 = new CalculatorView();
 		ts.say();	
 		ts2.say2();
+		
+		asdasdasdadsa
 }
 }
