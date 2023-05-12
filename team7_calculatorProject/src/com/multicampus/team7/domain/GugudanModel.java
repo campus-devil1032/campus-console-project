@@ -1,5 +1,7 @@
 package com.multicampus.team7.domain;
 
+import com.multicampus.team7.exception.DanValueOverflowException;
+
 public class GugudanModel {
 
 	private int dan;  //구구단 단
@@ -8,7 +10,7 @@ public class GugudanModel {
 	public GugudanModel(String dan) throws NumberFormatException { //구구단모델 생성자
 		this.dan = Integer.parseInt(dan); 
 		if (this.dan < 1 || this.dan > 999) { //String dan이 1보다 작거나 999보다 클때
-			throw new NumberFormatException("구구단은 1~999까지 입력 가능"); //에러 메시지 출력
+			throw new DanValueOverflowException("구구단은 1~999까지 입력 가능"); //에러 메시지 출력
 		}
 		this.calculateGugudan();
 	}

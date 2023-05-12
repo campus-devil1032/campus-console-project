@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import com.multicampus.team7.controller.GugudanController;
+import com.multicampus.team7.exception.DanValueOverflowException;
 
 public class AppService {
 
@@ -24,24 +25,29 @@ public class AppService {
 			input = null; // 입력 값 초기화
 			menuView(); // 메뉴 보여주기
 			try {
-				System.out.println("q : 종료, g : 구구단 실행 "); // q입력시 종료, g 입력 구구단 실행
+				
 				input = br.readLine(); // 입력받은 내용 input에 저장
 
-				if (input.toLowerCase().equals("q")) { // q를 입력 했을 때(대소문자 구분없이 소문자q로 바꿈)
+				if (input.toLowerCase().equals("q")) { // "q"를 입력 했을 때(대소문자 구분없이 소문자"q"로 바꿈)
 					System.out.println("프로그램 종료");
-					break; // 프로그램 멈춤
-				} else if (input.toLowerCase().equals("g")) { // g를 입력 했을 때(대소문자 구분없이 소문자g로 바꿈)
-					this.doGugudan(); //
 					break;
-				} else if (input.toLowerCase().equals("c")) {// c를 입력 했을 때(대소문자 구분없이 소문자c로 바꿈)
+					
+				} else if (input.toLowerCase().equals("g")) { // "g"를 입력 했을 때(대소문자 구분없이 소문자"g"로 바꿈)
+					this.doGugudan(); 
+					
+				} else if (input.toLowerCase().equals("c")) {// "c"를 입력 했을 때(대소문자 구분없이 소문자"c"로 바꿈)
 					// 계산기
-				} else if (input.toLowerCase().equals("s")) {// s를 입력 했을 때(대소문자 구분없이 소문자s로 바꿈)
+				} else if (input.toLowerCase().equals("s")) {// "s"를 입력 했을 때(대소문자 구분없이 소문자"s"로 바꿈)
 					// 별찍기
 				} else {
 					System.out.println("잘못 된 입력입니다.");
+					//throw new
 				}
-			} catch (IOException e) { // 예외처리
-				System.out.println("잘못 된 입력입니다.");
+			}catch (DanValueOverflowException e) {
+				
+			}
+			catch (IOException e) { // 예외처리
+				System.out.println("잘못 된 입력입니다asd.");
 			}
 		}
 	}
@@ -49,12 +55,13 @@ public class AppService {
 	// 메뉴 설명
 	private void menuView() {
 		System.out.println("구구단, 계산기, 별찍기 프로그램입니다.");
-		System.out.println("1. 구구단 - 원하는 단을 입력하면 구구단 출력 ");
-		System.out.println("2. 계산기 - 원하는 계산식을 입력하면 계산기 출력");
-		System.out.println("3. 별찍기 - 원하는 수를 입력하면 별찍기 출력");
-		System.out.println("q. 프로그램을 종료합니다.");
-		System.out.println("================================");
-		System.out.println("메뉴를 선택 해주세요");
+		System.out.println("======================================");
+		System.out.println("\"G\" 입력시 구구단 - 원하는 단을 입력하면 구구단 출력 ");
+		System.out.println("\"C\" 입력시 계산기 - 원하는 계산식을 입력하면 계산기 출력");
+		System.out.println("\"S\" 입력시 별찍기 - 원하는 수를 입력하면 별찍기 출력");
+		System.out.println("\"Q\" 입력시 프로그램을 종료합니다.");
+		System.out.println("======================================");
+		
 	}
 
 	private void doGugudan() throws IOException {
