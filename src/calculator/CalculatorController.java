@@ -13,5 +13,9 @@ public class CalculatorController {
 	public void setCalcOperator() {
 		model.setInputTest();
 		model.setDivdeLine();
+		model.setCalculator();
+		model.setCalcMethod();
 	}
+	
+	
 }
