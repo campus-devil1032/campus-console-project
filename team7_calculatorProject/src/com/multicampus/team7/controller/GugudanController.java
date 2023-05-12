@@ -1,41 +1,27 @@
 package com.multicampus.team7.controller;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+import com.multicampus.team7.domain.GugudanModel;
+import com.multicampus.team7.service.GugudanService;
+import com.multicampus.team7.view.GugudanView;
 
 public class GugudanController {
-
-	public void gugudanRun() {
-		
-		Scanner scan = new Scanner(System.in);
-		int dan;
-		GugudanModel gugudanModel = new GugudanModel();
-		GugudanView gugudanView = new GugudanView();
-		
-		System.out.println("������ ���α׷��Դϴ�.");
-		while(true) {
-			gugudanView.getInput();
-			try {
-				dan = scan.nextInt();
-				
-				if(dan == 0) { //�����ϱ� ����
-					gugudanView.exitMassage();
-					System.exit(0);
-				}
-				else if(dan <1 || dan >99) { //���� ����� throw
-					throw new IllegalArgumentException();
-				}else
-				{
-					gugudanModel.gugudanRun(dan); //�ùٸ� ������ model ������ ����
-				}		
-			}
-			catch(InputMismatchException e){ //���ڸ��� �ٸ� �� error (String�̳� ����?)
-				scan.next();
-				gugudanView.errorMassageInputMismatchException();
-			}
-			catch(IllegalArgumentException e) { // ���� �Ѵ� ����error ??
-				gugudanView.errorMassageIllegalArgumenException();
-			}
-		}
+	private GugudanService guguService = new GugudanService(); //gugudanService 객체생성
+	private GugudanView guguView = new GugudanView(); //guguView 객체생성
+	
+	public void viewMenu() {
+		guguView.showMenu(); // view에 요청
+	}
+	
+	public void inputDan(String dan) {
+		guguService.inputDan(dan); //service에 요청
+	}
+	
+	public void viewResult() { //구구단 결과값
+		int dan = guguService.getDan(); 
+		int[] gugudanResult = guguService.getGugudanResult(); //결과 gugudanResult에 배열로 저장
+		guguView.showResult(dan, gugudanResult);
 	}
 }

@@ -1,21 +1,15 @@
 package com.multicampus.team7.view;
 
 public class GugudanView {
-	
-	public void getInput() {
-		System.out.println("1~99사이의 계산 할 단을 입력해주세요.");
-		System.out.println("\"0\"을 입력하시면 구구단 프로그램을 종료합니다.");
+
+	public void showMenu() {
+		System.out.println("구구단 - 원하는 단을 입력하면 구구단 출력 ");
+		System.out.println("단 수를 입력하세요");
 	}
 
-	public void exitMassage() {
-		System.out.print("구구단 프로그램을 종료합니다.");
-	}
-	
-	public void errorMassageInputMismatchException() {
-		System.out.println("Error : InputMismatchException");
-	}
-	
-	public void errorMassageIllegalArgumenException() {
-		System.out.println("Error : IllegalArgumenException");
+	public void showResult(int dan, int[] gugudanResult) {
+		for (int i = 1; i < gugudanResult.length; i++) {
+			System.out.println(dan + "x" + (i + 1) + "=" + gugudanResult[i]); // gugudanResult[i]를 넣어줘야함
+		}
 	}
 }
