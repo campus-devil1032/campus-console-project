@@ -39,32 +39,34 @@ public class CalculatorModel {
 	// 정답 구하기
 	public void setCalcMethod() {
 		// check size
-		int size = this.calcSimbol.size();
 		char[] chars = this.calcSimbol.toString().toCharArray(); 
-		
+		double temp = 0;
 		int i = 0;
 		for (char symbol : chars) {
 			
 				if (symbol == '+' ) {
-					this.answer = this.intNumber.get(i) + this.intNumber.get(i + 1);
+				
+					temp += this.intNumber.get(i) + this.intNumber.get(i + 1);
+					this.answer += temp;
+					temp = 0;
 					i++;
 					continue;
 				}
 			
 				else if (symbol == '-' ) {
-				this.answer = this.intNumber.get(i) - this.intNumber.get(i + 1);
+				this.answer -= this.intNumber.get(i) - this.intNumber.get(i + 1);
 				i++;
 				continue;
 			}
 			
 				else if (symbol == '*' ) {
-				this.answer = this.intNumber.get(i) * this.intNumber.get(i + 1);
+				this.answer *= this.intNumber.get(i) * this.intNumber.get(i + 1);
 				i++;
 				continue;
 			}
 			
 				else if (symbol == '/' ) {
-				this.answer = this.intNumber.get(i) / this.intNumber.get(i + 1);
+				this.answer /= this.intNumber.get(i) / this.intNumber.get(i + 1);
 				i++;
 				continue;
 			}
