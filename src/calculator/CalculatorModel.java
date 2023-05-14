@@ -1,27 +1,21 @@
 package calculator;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class CalculatorModel {
-	private String stScan;
+
 	private String[] divdeString;
 	private ArrayList<String> onlyNumber = new ArrayList<String>();
 	private ArrayList<String> calcSimbol = new ArrayList<String>();
 	private ArrayList<Double> intNumber = new ArrayList<Double>();
-	private ArrayList<Integer> symbolNumber = new ArrayList<Integer>();
-	private Double answer;
-	public void setInputTest() {
-		Scanner scan = new Scanner(System.in);
-		System.out.println("계산에 입력할 수식을 넣으세요 예) 1 + 2 = ,  34 + 5 * 23 =");
-		String stScan = scan.nextLine();
-		System.out.println(stScan.toString());
-		this.stScan = stScan;
-	}
+	private Double answer = (double) 0;
+
 	
-	public void setDivdeLine() {
-		this.divdeString = this.stScan.split("\\s+");
-		
+	
+	
+	
+	public void setDivdeLine(String scan) {
+		this.divdeString = scan.split("\\s+");
 		
 		// 번호만 리스트에 넣기
 		for (int j = 0; j < this.divdeString.length; j = j + 2) {			
@@ -31,11 +25,7 @@ public class CalculatorModel {
 		// 특수 기호 + - * / = 만 넣기
 		for (int j = 1; j < this.divdeString.length; j = j + 2) {			
 			this.calcSimbol.add(this.divdeString[j]);	
-		}
-		
-		System.out.println(this.onlyNumber.toString());
-		System.out.println(calcSimbol.toString());
-		
+		}		
 	}
 	
 	// 
@@ -43,65 +33,54 @@ public class CalculatorModel {
 		for (String intNum : this.onlyNumber) {
 			intNumber.add(Double.valueOf(intNum));
 		}
-		
-		
-		System.out.println(intNumber);
-	}
+			}
 	
+	
+	// 정답 구하기
 	public void setCalcMethod() {
 		// check size
 		int size = this.calcSimbol.size();
+		char[] chars = this.calcSimbol.toString().toCharArray(); 
 		
-		// string to char
-		char[] chars = this.calcSimbol.toString().toCharArray();
-
-		
-		for (int i = 0; i < size; i++) {
-			for (char symbol : chars) {
+		int i = 0;
+		for (char symbol : chars) {
+			
 				if (symbol == '+' ) {
-					this.answer = this.intNumber.get(0) + this.intNumber.get(1);
-//					this.intNumber.remove(0);
-
+					this.answer = this.intNumber.get(i) + this.intNumber.get(i + 1);
+					i++;
 					continue;
 				}
 			
 				else if (symbol == '-' ) {
-				this.answer = this.intNumber.get(0) - this.intNumber.get(1);
-//				if (symbol == '=') {
-//					break;
-//				}
-//				this.intNumber.remove(0);
+				this.answer = this.intNumber.get(i) - this.intNumber.get(i + 1);
+				i++;
 				continue;
 			}
 			
 				else if (symbol == '*' ) {
-				this.answer = this.intNumber.get(0) * this.intNumber.get(1);
-//				if (symbol == '=') {
-//					break;
-//				}
-//				this.intNumber.remove(0);
+				this.answer = this.intNumber.get(i) * this.intNumber.get(i + 1);
+				i++;
 				continue;
 			}
 			
 				else if (symbol == '/' ) {
-				this.answer = this.intNumber.get(0) / this.intNumber.get(1);
-//				if (symbol == '=') {
-//					break;
-//				}
-//				this.intNumber.remove(0);
+				this.answer = this.intNumber.get(i) / this.intNumber.get(i + 1);
+				i++;
 				continue;
 			}
-				else if (symbol == '=' ) {
-					break;
-				}
-			}
+				
+			
 		}
 		
 	}
 	
-	public void setAnswer() {
-		System.out.println(answer);
+	
+	
+	public double getAnswer() {
+	 return this.answer;
 	}
+	
+	
 	
 	
 }
