@@ -15,6 +15,7 @@ public class CalculatorController {
 		model.setDivdeLine();
 		model.setCalculator();
 		model.setCalcMethod();
+		model.setAnswer();
 	}
 	
 	

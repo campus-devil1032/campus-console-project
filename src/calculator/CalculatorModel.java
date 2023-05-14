@@ -59,11 +59,10 @@ public class CalculatorModel {
 		for (int i = 0; i < size; i++) {
 			for (char symbol : chars) {
 				if (symbol == '+' ) {
-					this.answer += this.intNumber.get(0) + this.intNumber.get(1);
-					this.intNumber.remove(0);
-//					if (symbol == '=') {
-//						break;
-//					}
+					this.answer = this.intNumber.get(0) + this.intNumber.get(1);
+//					this.intNumber.remove(0);
+
+					continue;
 				}
 			
 				else if (symbol == '-' ) {
@@ -71,6 +70,8 @@ public class CalculatorModel {
 //				if (symbol == '=') {
 //					break;
 //				}
+//				this.intNumber.remove(0);
+				continue;
 			}
 			
 				else if (symbol == '*' ) {
@@ -78,6 +79,8 @@ public class CalculatorModel {
 //				if (symbol == '=') {
 //					break;
 //				}
+//				this.intNumber.remove(0);
+				continue;
 			}
 			
 				else if (symbol == '/' ) {
@@ -85,17 +88,19 @@ public class CalculatorModel {
 //				if (symbol == '=') {
 //					break;
 //				}
+//				this.intNumber.remove(0);
+				continue;
 			}
-//				else if (symbol == '=' ) {
-//					break;
-//				}
+				else if (symbol == '=' ) {
+					break;
+				}
 			}
 		}
-		System.out.println(answer);
+		
 	}
 	
-	public void setPlus(char symbol) {
-
+	public void setAnswer() {
+		System.out.println(answer);
 	}
 	
 	
