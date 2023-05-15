@@ -32,6 +32,7 @@ public class MVCMain {
 				guguview.run();
 				break;
 			case 2: // 계산기 실행
+				calcController.setIntro();
 				calcController.setCalcOperator();
 				break;
 			case 3: // 별찍기 실행
