@@ -37,38 +37,43 @@ public class CalculatorModel {
 		char[] chars = this.calcSimbol.toString().toCharArray();
 		int i = 0;
 
-		for (char symbol : chars) {
+		if (this.calcSimbol.toString().contains("=") == true) {
+			for (char symbol : chars) {
 
-			if (symbol == '+') {
+				if (symbol == '+') {
 
-				this.answer = this.intNumber.get(0) + this.intNumber.get(i + 1);
-				this.intNumber.set(0, this.answer);
-				i++;
-				continue;
+					this.answer = this.intNumber.get(0) + this.intNumber.get(i + 1);
+					this.intNumber.set(0, this.answer);
+					i++;
+					continue;
+				}
+
+				else if (symbol == '-') {
+					this.answer = this.intNumber.get(0) - this.intNumber.get(i + 1);
+					this.intNumber.set(0, this.answer);
+					i++;
+					continue;
+				}
+
+				else if (symbol == '*') {
+					this.answer = this.intNumber.get(0) * this.intNumber.get(i + 1);
+					this.intNumber.set(0, this.answer);
+					i++;
+					continue;
+				}
+
+				else if (symbol == '/') {
+					this.answer = this.intNumber.get(0) / this.intNumber.get(i + 1);
+					this.intNumber.set(0, this.answer);
+					i++;
+					continue;
+				}
+
 			}
-
-			else if (symbol == '-') {
-				this.answer = this.intNumber.get(0) - this.intNumber.get(i + 1);
-				this.intNumber.set(0, this.answer);
-				i++;
-				continue;
-			}
-
-			else if (symbol == '*') {
-				this.answer = this.intNumber.get(0) * this.intNumber.get(i + 1);
-				this.intNumber.set(0, this.answer);
-				i++;
-				continue;
-			}
-
-			else if (symbol == '/') {
-				this.answer = this.intNumber.get(0) / this.intNumber.get(i + 1);
-				this.intNumber.set(0, this.answer);
-				i++;
-				continue;
-			}
-
+		} else {
+			 throw new NumberFormatException(" = 을 마지막에 써주세요.  = 을 안쓰면 계산기 잘동 안됩니다");
 		}
+
 	}
 
 	public double getAnswer() {
