@@ -10,79 +10,69 @@ public class CalculatorModel {
 	private ArrayList<Double> intNumber = new ArrayList<Double>();
 	private Double answer = (double) 0;
 
-	
-	
-	
-	
 	public void setDivdeLine(String scan) {
 		this.divdeString = scan.split("\\s+");
-		
+
 		// 번호만 리스트에 넣기
-		for (int j = 0; j < this.divdeString.length; j = j + 2) {			
-			this.onlyNumber.add(this.divdeString[j]);	
+		for (int j = 0; j < this.divdeString.length; j = j + 2) {
+			this.onlyNumber.add(this.divdeString[j]);
 		}
-		
+
 		// 특수 기호 + - * / = 만 넣기
-		for (int j = 1; j < this.divdeString.length; j = j + 2) {			
-			this.calcSimbol.add(this.divdeString[j]);	
-		}		
+		for (int j = 1; j < this.divdeString.length; j = j + 2) {
+			this.calcSimbol.add(this.divdeString[j]);
+		}
 	}
-	
-	// 
+
+	//
 	public void setCalculator() {
 		for (String intNum : this.onlyNumber) {
 			intNumber.add(Double.valueOf(intNum));
 		}
-			}
-	
-	
+	}
+
 	// 정답 구하기
 	public void setCalcMethod() {
 		// check size
-		char[] chars = this.calcSimbol.toString().toCharArray(); 
-		double temp = 0;
+		char[] chars = this.calcSimbol.toString().toCharArray();
 		int i = 0;
+
 		for (char symbol : chars) {
-			
-				if (symbol == '+' ) {
-				
-					temp += this.intNumber.get(i) + this.intNumber.get(i + 1);
-					this.answer += temp;
-					temp = 0;
-					i++;
-					continue;
-				}
-			
-				else if (symbol == '-' ) {
-				this.answer -= this.intNumber.get(i) - this.intNumber.get(i + 1);
+
+			if (symbol == '+') {
+
+				this.answer = this.intNumber.get(0) + this.intNumber.get(i + 1);
+				this.intNumber.set(0, this.answer);
 				i++;
 				continue;
 			}
-			
-				else if (symbol == '*' ) {
-				this.answer *= this.intNumber.get(i) * this.intNumber.get(i + 1);
+
+			else if (symbol == '-') {
+				this.answer = this.intNumber.get(0) - this.intNumber.get(i + 1);
+				this.intNumber.set(0, this.answer);
 				i++;
 				continue;
 			}
-			
-				else if (symbol == '/' ) {
-				this.answer /= this.intNumber.get(i) / this.intNumber.get(i + 1);
+
+			else if (symbol == '*') {
+				this.answer = this.intNumber.get(0) * this.intNumber.get(i + 1);
+				this.intNumber.set(0, this.answer);
 				i++;
 				continue;
 			}
-				
-			
+
+			else if (symbol == '/') {
+				this.answer = this.intNumber.get(0) / this.intNumber.get(i + 1);
+				this.intNumber.set(0, this.answer);
+				i++;
+				continue;
+			}
+
 		}
-		
 	}
-	
-	
-	
+
 	public double getAnswer() {
-	 return this.answer;
+		return this.answer;
 	}
-	
-	
-	
-	
+
 }
