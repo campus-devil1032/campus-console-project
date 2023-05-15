@@ -12,8 +12,15 @@ public class CalculatorView {
 		
 		System.out.println("계산에 입력할 수식을 넣으세요 예) 1 + 2 = ,  34 + 5 * 23 =");
 		String stScan = this.scan.nextLine();
-		System.out.println(stScan.toString());
-		this.stScan = stScan;
+		if (stScan.contains("+") || stScan.contains("-") || stScan.contains("*") || stScan.contains("/")) {
+			System.out.println(stScan.toString());
+			this.stScan = stScan;
+		} else {
+			 throw new NumberFormatException("양식에 맞춰 제대로 정보를 기입해주세요 ");
+		}
+			
+			
+		
 	}
 	
 	public String getInputTest() {
