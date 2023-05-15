@@ -71,7 +71,7 @@ public class CalculatorModel {
 
 			}
 		} else {
-			 throw new NumberFormatException(" = 을 마지막에 써주세요.  = 을 안쓰면 계산기 잘동 안됩니다");
+			 throw new NumberFormatException(" = 을 마지막에 써주세요.  = 을 안쓰면 계산기 잘동 안됩니다 ");
 		}
 
 	}
