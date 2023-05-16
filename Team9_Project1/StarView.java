@@ -1,3 +1,4 @@
+package Team9_Project1;
 import java.util.Scanner;
 
 public class StarView {

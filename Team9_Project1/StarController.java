@@ -1,4 +1,4 @@
-
+package Team9_Project1;
 public class StarController {
 	private StarView view;
 	private StarModel model;

@@ -1,4 +1,4 @@
-
+package Team9_Project1;
 public class StarModel {
 	private StringBuilder sb;
 
