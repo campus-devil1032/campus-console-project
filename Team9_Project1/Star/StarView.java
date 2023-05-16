@@ -8,6 +8,7 @@ public class StarView {
 
 	public StarView() {
 		sc = new Scanner(System.in);
+		sb = new StringBuilder();
 	}
 
 	public void menuShow() {

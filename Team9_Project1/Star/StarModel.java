@@ -22,8 +22,9 @@ public class StarModel {
 				else
 					sb.append(" ");
 			}
+			sb.append("\n");
 		}
-
+		System.out.println(sb);
 	}
 
 	public void triangle(int size) {
@@ -38,6 +39,7 @@ public class StarModel {
 			for (int j = 0; j < size - i; j++) {
 				sb.append(" ");
 			}
+			sb.append("\n");
 		}
 		System.out.println(sb);
 	}
@@ -45,16 +47,14 @@ public class StarModel {
 	public void diamond(int size) {
 		sb = new StringBuilder();
 		for (int i = 0; i < size; i++) {
-			int temp = size / 2 - i;
+			int temp = Math.abs(size / 2 - i);
 			for (int j = 0; j < temp; j++) {
 				sb.append(" ");
 			}
-			for (int j = 0; j < size - (temp * 2); j++) {
+			for (int j = 0; j < size -(temp * 2); j++) {
 				sb.append("*");
 			}
-			for (int j = 0; j < temp; j++) {
-				sb.append(" ");
-			}
+			sb.append("\n");
 		}
 		System.out.println(sb);
 	}
@@ -68,6 +68,7 @@ public class StarModel {
 			for (int j = 0; j < i * 2 + 1; j++) {
 				sb.append("*");
 			}
+			sb.append("\n");
 		}
 
 		for (int i = 0; i < size; i++) {
@@ -77,6 +78,7 @@ public class StarModel {
 			for (int j = 0; j < size * 6 - 3 - i * 2; j++) {
 				sb.append("*");
 			}
+			sb.append("\n");
 		}
 
 		for (int i = 0; i < size - 1; i++) {
@@ -85,6 +87,7 @@ public class StarModel {
 		for (int i = 0; i < size * 4 - 1; i++) {
 			sb.append("*");
 		}
+		sb.append("\n");
 
 		for (int i = 0; i < size; i++) {
 			sb.append(" ");
@@ -92,6 +95,7 @@ public class StarModel {
 		for (int i = 0; i < size * 4 - 3; i++) {
 			sb.append("*");
 		}
+		sb.append("\n");
 		for (int i = 0; i < size; i++) {
 			for (int j = 0; j < size - i; j++) {
 				sb.append(" ");
@@ -105,6 +109,7 @@ public class StarModel {
 			for (int j = 0; j < (size - i) * 2 - 1; j++) {
 				sb.append("*");
 			}
+			sb.append("\n");
 		}
 		System.out.println(sb);
 	}
