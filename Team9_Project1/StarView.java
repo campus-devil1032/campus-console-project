@@ -21,10 +21,10 @@ public class StarView {
 		sb.append("원하는 선택지를 골라주세요 : ");
 		System.out.println(sb);
 		sb.delete(0, sb.length());
-		
 		menuSelect = sc.nextInt();
 		
 		sb.append("원하는 크기를 입력해 주세요 :");
+		System.out.println(sb);
 		size = sc.nextInt();
 	}
 	
