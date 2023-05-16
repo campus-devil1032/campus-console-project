@@ -1,5 +1,10 @@
 package merge_mvc;
 
+import merge_mvc.calc1.Calculator;
+import merge_mvc.calc2.Calculator2;
+import merge_mvc.gugudan1.GugudanModel;
+import merge_mvc.gugudan2.Gugudan2;
+
 public class MergePracticeController {
 	static MergePracticeView view = new MergePracticeView();
 
@@ -20,18 +25,21 @@ public class MergePracticeController {
 					isRunClient = false;
 					break;
 
-				case 1: // 구구단
-					Multiplicator.mul();
+				case 1: // 구구단 ver.1
+					GugudanModel.gugudanInput();
 					break;
 
-				case 2: // 계산기
+				case 2: // 구구단 ver.2
+					Gugudan2.gugudan();
+					break;
+
+				case 3: // 계산기 ver.1
 					Calculator.calc();
 					break;
-					
-				case 3:	// 별찍기
-					Shape.createShape();
+
+				case 4: // 계산기 ver.2
+					Calculator2.calc();
 					break;
-					
 
 				default: // 다른 값 입력 시
 					System.err.println("잘못된 입력입니다. 다시 입력하세요.");

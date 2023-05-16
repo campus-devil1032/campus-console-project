@@ -1,69 +1,72 @@
-package calculator;
+package merge_mvc.calc1;
 
 import java.util.Scanner;
 
 public class Calculator {
-	
+
 	Calculator calculator = new Calculator();
 
-	public static void main(String[] args) {
-		
+	public static void calc() {
+
 		Scanner sc = new Scanner(System.in);
-		
+
 		while (true) {
-		
+
 			try {
-				
-				int num1; // Ã¹¹øÂ° ÀÔ·Â ¼ıÀÚ
-				int num2; // µÎ ¹øÂ° ÀÔ·Â ¼ıÀÚ
-				String operator; // ¿¬»êÀÚ
-				int result = 0; // °á°ú °ª
-				
-				System.out.println("°è»êÇÏ½Ç Ã¹ ¹øÂ° ¼ıÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+
+				int num1; // ì²«ë²ˆì§¸ ì…ë ¥ ìˆ«ì
+				int num2; // ë‘ ë²ˆì§¸ ì…ë ¥ ìˆ«ì
+				String operator; // ì—°ì‚°ì
+				int result = 0; // ê²°ê³¼ ê°’
+
+				System.out.println("ê³„ì‚°í•˜ì‹¤ ì²« ë²ˆì§¸ ìˆ«ìë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 				num1 = sc.nextInt();
-				
-				System.out.println("¿¬»ê ±âÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä (/, *, -, +, %)");
+				sc.nextLine();
+
+				System.out.println("ì—°ì‚° ê¸°í˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš” (/, *, -, +, %)");
 				operator = sc.next();
-				
-				System.out.println("°è»êÇÏ½Ç µÎ ¹øÂ° ¼ıÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+				sc.nextLine();
+
+				System.out.println("ê³„ì‚°í•˜ì‹¤ ë‘ ë²ˆì§¸ ìˆ«ìë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 				num2 = sc.nextInt();
-				
+				sc.nextLine();
+
 				if (operator.equals("/")) {
 					result = num1 / num2;
 				}
-				
+
 				else if (operator.equals("*")) {
 					result = num1 * num2;
 				}
-				
+
 				else if (operator.equals("-")) {
 					result = num1 - num2;
 				}
-				
+
 				else if (operator.equals("+")) {
 					result = num1 + num2;
 				}
-				
+
 				else if (operator.equals("%")) {
 					result = num1 % num2;
 				}
-				
+
 				else {
-					System.out.println("¾Ë ¼ö ¾ø´Â ¿¬»êÀÚ ÀÔ´Ï´Ù.");
+					System.out.println("ì•Œ ìˆ˜ ì—†ëŠ” ì—°ì‚°ì ì…ë‹ˆë‹¤.");
 				}
-				
+
 				System.out.println(num1 + operator + num2 + "=" + result);
 			}
-			
-			catch (NullPointerException e) { // null °³Ã¼¸¦ ÂüÁ¶ÇÒ ¶§
+
+			catch (NullPointerException e) { // null ê°œì²´ë¥¼ ì°¸ì¡°í•  ë•Œ
 				System.out.println(e.getMessage());
 			}
 
-			catch (NumberFormatException e) { // ¹®ÀÚ¿­À» ¼ıÀÚ·Î º¯È¯ÇÒ ¼ö ¾øÀ» ¶§
+			catch (NumberFormatException e) { // ë¬¸ìì—´ì„ ìˆ«ìë¡œ ë³€í™˜í•  ìˆ˜ ì—†ì„ ë•Œ
 				System.out.println(e.getMessage());
 			}
-			
-			catch (RuntimeException e) { // ·±Å¸ÀÓ Áß¿¡ ¹ß»ıÇÏ´Â ¿¹¿Ü
+
+			catch (RuntimeException e) { // ëŸ°íƒ€ì„ ì¤‘ì— ë°œìƒí•˜ëŠ” ì˜ˆì™¸
 				System.out.println(e.getMessage());
 			}
 		}

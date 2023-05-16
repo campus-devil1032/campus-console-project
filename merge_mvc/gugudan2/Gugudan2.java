@@ -1,11 +1,11 @@
-package a;
+package merge_mvc.gugudan2;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Gugudan2 {
 
-	public static void main(String[] args) {
+	public static void gugudan() {
 
 		System.out.println("단 입력: ");
 
@@ -15,7 +15,7 @@ public class Gugudan2 {
 				Scanner sc = new Scanner(System.in);
 				int num = sc.nextInt();
 
-				if (num < 1000) {
+				if (num > 0 || num < 1000) {
 					for (int i = 1; i <= 9; i++) {
 						System.out.println(num + "x" + i + "=" + (num * i) + "");
 					}

@@ -1,4 +1,4 @@
-package merge_mvc;
+package merge_mvc.gugudan1;
 
 public class GugudanControl {
 	
