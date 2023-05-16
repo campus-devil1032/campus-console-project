@@ -16,7 +16,7 @@ public class CalView {
 		
 	}
 	void result(double result) {
-		System.out.print("결과는 "+result);
+		System.out.println("결과는 "+result);
 	}
 
 

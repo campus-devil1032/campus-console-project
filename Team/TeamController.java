@@ -1,4 +1,5 @@
 package Team;
+
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
@@ -7,10 +8,8 @@ import Team.Calculator.*;
 import Team.Gugudan.*;
 
 public class TeamController {
-	
-	private TeamView view = new TeamView();
 
-	
+	private TeamView view = new TeamView();
 
 	public void run() {
 		view.getStart();
@@ -22,11 +21,24 @@ public class TeamController {
 				int a = sc.nextInt();
 				switch (a) {
 				case 1:
-					GugudanMain.main(null);
-					return;
+					while (true) {
+						try {
+							GugudanMain.main(null);
+						} catch (InputMismatchException e) {
+							System.out.println("숫자만 입력하세요");
+							sc = new Scanner(System.in);
+						}
+					}
+
 				case 2:
-					CalMain.main(null);
-					return;
+					while (true) {
+						try {
+							CalMain.main(null);
+						} catch (InputMismatchException e) {
+							System.out.println("숫자만 입력하세요");
+							sc = new Scanner(System.in);
+						}
+					}
 				case 3:
 					StarMain.main(null);
 					return;

@@ -47,6 +47,7 @@ public class CalModel {
 			break;
 
 		default:
+			System.out.println("연산자를 제대로 입력하세요.");
 			break;
 		}  
 		return  result;
