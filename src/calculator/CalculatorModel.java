@@ -1,32 +1,34 @@
 package calculator;
 
 import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
 
 public class CalculatorModel {
 
 	private String[] divdeString;
 	private ArrayList<String> onlyNumber = new ArrayList<String>();
-	private ArrayList<String> calcSimbol = new ArrayList<String>();
-	private ArrayList<Double> intNumber = new ArrayList<Double>();
+	private Deque<String> calcSimbol = new LinkedList<String>();
+	private Deque<Double> intNumber = new LinkedList<Double>();
 	private Double answer = (double) 0;
 
 	public void setDivdeLine(String scan) {
-		this.divdeString = scan.split("\\s+");
+		divdeString = scan.split("\\s+");
 
 		// 번호만 리스트에 넣기
-		for (int j = 0; j < this.divdeString.length; j = j + 2) {
-			this.onlyNumber.add(this.divdeString[j]);
+		for (int j = 0; j < divdeString.length; j = j + 2) {
+			onlyNumber.add(divdeString[j]);
 		}
 
 		// 특수 기호 + - * / = 만 넣기
-		for (int j = 1; j < this.divdeString.length; j = j + 2) {
-			this.calcSimbol.add(this.divdeString[j]);
+		for (int j = 1; j < divdeString.length; j = j + 2) {
+			calcSimbol.add(divdeString[j]);
 		}
 	}
 
 	//
 	public void setCalculator() {
-		for (String intNum : this.onlyNumber) {
+		for (String intNum : onlyNumber) {
 			intNumber.add(Double.valueOf(intNum));
 		}
 	}
@@ -34,50 +36,38 @@ public class CalculatorModel {
 	// 정답 구하기
 	public void setCalcMethod() {
 		// check size
-		char[] chars = this.calcSimbol.toString().toCharArray();
-		int i = 0;
+		double temp = 0;
+		if (calcSimbol.toString().contains("=") == true) {
+			for (int i = 0; i < calcSimbol.size(); i++) {
 
-		if (this.calcSimbol.toString().contains("=") == true) {
-			for (char symbol : chars) {
-
-				if (symbol == '+') {
-
-					this.answer = this.intNumber.get(0) + this.intNumber.get(i + 1);
-					this.intNumber.set(0, this.answer);
-					i++;
-					continue;
+				if (calcSimbol.poll().equals("+")) {
+					answer = intNumber.poll() + intNumber.poll();
+					intNumber.addLast(answer);
+				} else if (calcSimbol.poll().equals("-")) {
+					answer = intNumber.poll() - intNumber.poll();
+					intNumber.addLast(answer);
+				} else if (calcSimbol.poll().equals("*")) {
+					answer = intNumber.poll() * intNumber.poll();
+					intNumber.addLast(answer);
+				} else if (calcSimbol.poll().equals("/")) {
+					answer = intNumber.poll() / intNumber.poll();
+					temp = answer;
 				}
-
-				else if (symbol == '-') {
-					this.answer = this.intNumber.get(0) - this.intNumber.get(i + 1);
-					this.intNumber.set(0, this.answer);
-					i++;
-					continue;
-				}
-
-				else if (symbol == '*') {
-					this.answer = this.intNumber.get(0) * this.intNumber.get(i + 1);
-					this.intNumber.set(0, this.answer);
-					i++;
-					continue;
-				}
-
-				else if (symbol == '/') {
-					this.answer = this.intNumber.get(0) / this.intNumber.get(i + 1);
-					this.intNumber.set(0, this.answer);
-					i++;
-					continue;
-				}
-
+				i++;
 			}
 		} else {
-			 throw new NumberFormatException(" = 을 마지막에 써주세요.  = 을 안쓰면 계산기 잘동 안됩니다 ");
+			throw new NumberFormatException(" = 을 마지막에 써주세요.  = 을 안쓰면 계산기 잘동 안됩니다 ");
 		}
 
 	}
-
+	public void clearArray() {
+		intNumber.clear();
+		calcSimbol.clear();
+		onlyNumber.clear();
+		
+	}
 	public double getAnswer() {
-		return this.answer;
+		return answer;
 	}
 
 }

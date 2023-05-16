@@ -6,31 +6,32 @@ public class CalculatorController {
 	private CalculatorView view = new CalculatorView();
 	private String scan;
 	private double answer;
-	
+
 	public CalculatorController(CalculatorModel model, CalculatorView view) {
 		this.model = model;
 		this.view = view;
 	}
-	
+
 	public void setIntro() {
 		view.setInputTest();
 	}
-	
-	
+
 	public void getIntro() {
 		this.scan = view.getInputTest();
 	}
-	
+
 	public void getDivideLine() {
 		model.setDivdeLine(this.scan);
 	}
-	
+
 	public void getAnswer() {
 		this.answer = model.getAnswer();
 	}
-	
 
-	
+	public void clearArray() {
+		model.clearArray();
+	}
+
 	public void setCalcOperator() {
 		getIntro();
 		getDivideLine();
@@ -39,6 +40,5 @@ public class CalculatorController {
 		getAnswer();
 		view.setResults(this.answer);
 	}
-	
-	
+
 }
