@@ -15,7 +15,7 @@ public class GugudanView {
 
         // 구구단 단 수 입력
         while (!isValidInput) {
-            System.out.println("원하는 구구단의 단 수를 입력해 주세요. (2 ~ 999)");
+            System.out.println("원하는 구구단의 단 수를 입력해 주세요. (1 ~ 999)");
             try {
                 String input = scanner.nextLine();
                 num = Integer.parseInt(input);
