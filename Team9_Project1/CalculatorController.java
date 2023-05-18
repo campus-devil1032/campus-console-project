@@ -1,13 +1,12 @@
 package Team9_Project1;
 
 public class CalculatorController {
-
 	private CalculatorModel model;
 	private CalculatorView view;
 	
-	public CalculatorController(CalculatorModel model, CalculatorView view) {
-		this.model = model;
-		this.view = view;
+	public CalculatorController() {
+		this.model = new CalculatorModel();
+		this.view = new CalculatorView();
 	}
 	
 	public void showTable() {
